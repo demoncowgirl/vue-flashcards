@@ -2,8 +2,7 @@
     <div class="container">
         <div class="navbar-header">
             <!-- Brand -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Snakke Norsk') }}</a>
+            <a class="navbar-brand" href="{{ url('/') }}">Snakke Norsk</a>
             <ul class="nav navbar-nav">
                 &nbsp;
             </ul>

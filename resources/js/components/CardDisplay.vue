@@ -1,14 +1,14 @@
 <template>
 <div>
     <div class="background" style="background-color: #0A2463;">
-        <div id="card-display" class="card" v-for="word in cardData" v-if="index==currentIndex">
+        <div id="card-display" class="card" v-for="(word, index) in cardData" v-if="index==currentIndex">
             <div class="container text-center align-content-center">
                 <div class="row">
                     <div class="col-md-12 p-2">
                         <div class="col-md-3"></div>
                         <div class="card well col-md-6 m-2">
                             <div class="card-img-top">
-                                <!-- <img :src="'storage/images/flag.png'" id="flagImage"   alt="Card image cap"> -->
+                                <img :src="'storage/images/flag.png'" id="flagImage"   alt="Card image cap">
                                 <div class="card-img-overlay"></div>
                                 <div id="display">
                                     <h3 class="card-title">Norwegian</h3>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="card well col-md-6 m-2">
                             <div class="card-img-top mt-3">
-                                <!-- <img :src="'storage/images/us_flag2.jpeg'" id="flagImage" :src="'assets/images/us_flag2.jpeg'" alt="Card image cap"> -->
+                                <img :src="'storage/images/us_flag2.jpeg'" id="flagImage" :src="'assets/images/us_flag2.jpeg'" alt="Card image cap">
                                 <div class="card-img-overlay"></div>
                                 <h3 class="card-title">English</h3>
                                 <h1 class="card-text" :id="eng_word" name="current_eng_word">{{current_eng_word}}</h1>
@@ -61,13 +61,14 @@ export default {
     },
     mounted() {
 
-      this.current_nor_word = this.cardData[this.current].nor_word;
-      this.current_nor_sentence = this.cardData[this.current].nor_sentence;
-      this.current_eng_word = this.cardData[this.current].eng_word;
-      this.current_eng_sentence = this.cardData[this.current].eng_sentence;
-
     },
     methods: {
+        getWord: function(){
+            var current_nor_word = this.cardData[this.current].nor_word;
+            var current_nor_sentence = this.cardData[this.current].nor_sentence;
+            var current_eng_word = this.cardData[this.current].eng_word;
+            var current_eng_sentence = this.cardData[this.current].eng_sentence;
+        },
         nextCard: function() {
             var cards_array = this.cards;
             this.currentIndex = (this.currentIndex + 1) % this.cards_array.length;
