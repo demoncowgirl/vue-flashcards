@@ -4,10 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Snakke Norsk</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+
+        <!-- Bootsrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -64,35 +67,29 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+      <div class="flex-center position-ref full-height">
+        {{-- @if (Route::has('login')) --}}
+        <div class="top-right links">
+            {{-- @auth --}}
+              <a href="/word">Start</a>
+              <a href="/logout">Logout</a>
+            {{-- @else --}}
+              <a href="/welcome">Home</a>
+              <a href="login">Login</a>
+              <a href="register">Register</a>
+              <a href="/word">Guest</a>
+            {{-- @endauth --}}
         </div>
+        {{-- @endif --}}
+        <div class="content">
+          <div class="title m-b-md">
+              Velkommen!
+          </div>
+          <img id="flag" src="{{ asset('images/flag.png') }}" alt="norwegian flag" width="200px">
+          <div class="title m-b-md">
+              Snakke Norsk
+          </div>
+        </div>
+      </div>
     </body>
 </html>

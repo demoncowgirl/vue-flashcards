@@ -12,3 +12,51 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+#flagImage{
+  opacity: 0.70;
+}
+
+h1{
+  color: #000;
+  font-weight: 600;
+  margin: 5px;
+}
+
+h3{
+  margin: 5px;
+}
+
+.navbar-links{
+  color: #000;
+  font-weight: 600;
+  align-content: flex-end;
+}
+
+.card{
+  margin-top: 100px;
+  margin-bottom: 40px;
+  width: 300px;
+  padding: 5px;
+  height: 400px;
+}
+
+.card-body{
+  width: 280px;
+  padding: 5px;
+  height: 400px;
+  color: #000;
+  font-size: 18px;
+}
+
+.btn{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.footer{
+  height: 80px;
+  max-width: 700px;
+  align-content: center;
+  margin-bottom: 80px;
+}

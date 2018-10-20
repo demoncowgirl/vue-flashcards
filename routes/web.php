@@ -10,7 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+  Route::get('/', 'PagesController@getHome'); //to welcome page
+  Route::get('/home', 'HomeController@index')->name('home');
+  Route::get('/auth/login', 'PagesController@getLogin'); //to page saying login successful
+  Route::get('/home', 'PagesController@getLoginSuccess'); //to page saying login successful
+  Route::get('/auth/register','PagesController@getRegister');
+  Route::get('/welcome', 'PagesController@getLogout'); //returns to Welcome page if login is successful
+  Route::get('/word', 'PagesController@getWord');
+  Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+  Route::resource('/word', 'WordController');
+  Route::post('/word.store', 'WordController@store');
+  Route::post('/word.create', 'WordController@create');
+  Route::get('/word/{id}/show', 'WordController@show');
+  Route::get('word/{id}/edit', 'WordController@edit');
+  Route::put('word/{id}/update', 'wordController@update');
+
+  Route::get('word', function(){
+    $words = DB::table('words')->get();
+    return view('word', ['words'=>$words]);
+  });
+
+  Form::token();
+  // Auth::routes();
