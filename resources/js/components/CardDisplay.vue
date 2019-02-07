@@ -1,4 +1,5 @@
 <template>
+  <div class="container">
     <div class="background" style="background-color: #0A2463;">
         <div id="card-display" class="card" v-for="(word, index) in words" v-if="index==currentIndex">
             <div class="container text-center align-content-center">
@@ -40,6 +41,7 @@
             </div>
         </div>
     </div>
+  </div>
 </template>
 
 
