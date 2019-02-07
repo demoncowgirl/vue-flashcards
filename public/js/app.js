@@ -47507,12 +47507,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['cardData'],
+    name: 'card-display',
     data: function data() {
         return {
             current_nor_word: '',
@@ -47523,15 +47521,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         };
     },
-    mounted: function mounted() {
-
-        this.current_nor_word = this.cardData[this.current].nor_word;
-        this.current_nor_sentence = this.cardData[this.current].nor_sentence;
-        this.current_eng_word = this.cardData[this.current].eng_word;
-        this.current_eng_sentence = this.cardData[this.current].eng_sentence;
-    },
+    mounted: function mounted() {},
 
     methods: {
+        getWord: function getWord() {
+            var current_nor_word = this.cardData[this.current].nor_word;
+            var current_nor_sentence = this.cardData[this.current].nor_sentence;
+            var current_eng_word = this.cardData[this.current].eng_word;
+            var current_eng_sentence = this.cardData[this.current].eng_sentence;
+        },
         nextCard: function nextCard() {
             var cards_array = this.cards;
             this.currentIndex = (this.currentIndex + 1) % this.cards_array.length;
@@ -47546,7 +47544,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 45 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function(){},staticRenderFns:[]}
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-40d48577", module.exports)
+  }
+}
 
 /***/ }),
 /* 46 */

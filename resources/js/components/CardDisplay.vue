@@ -1,7 +1,6 @@
 <template>
-<div>
     <div class="background" style="background-color: #0A2463;">
-        <div id="card-display" class="card" v-for="(word, index) in cardData" v-if="index==currentIndex">
+        <div id="card-display" class="card" v-for="(word, index) in words" v-if="index==currentIndex">
             <div class="container text-center align-content-center">
                 <div class="row">
                     <div class="col-md-12 p-2">
@@ -41,14 +40,13 @@
             </div>
         </div>
     </div>
-</div>
 </template>
 
 
 <script>
 
 export default {
-    props: ['cardData'],
+    name: 'card-display',
     data: function() {
         return {
             current_nor_word: '',

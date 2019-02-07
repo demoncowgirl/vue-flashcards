@@ -1,17 +1,16 @@
 <?php
 
-
-// $DATABASE_URL = parse_url(getenv("DATABASE_URL"));
-  // $url = mysql://bc6687a1e7b519:af5f2af0@us-cdbr-iron-east-01.cleardb.net/heroku_ba6c97aaea40e14?reconnect=true
+$DATABASE_URL = parse_url(getenv("DATABASE_URL"));
+$url = postgres://ychagjlgrchvxe:7dbd3ef007536e830163a35a5135ff567752197f6ac5d036dff5f11c70e2b4a1@ec2-54-243-128-95.compute-1.amazonaws.com:5432/d8i64tb7mhd5pr
   // $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
   // $host = $url['host'];
   // $username = $url['user'];
   // $password = $url['pass'];
   // $database = substr($url["path"], 1);
-  $host = 'us-cdbr-iron-east-01.cleardb.net';
-  $username = 'bc6687a1e7b519';
-  $password = 'af5f2af0';
-  $database = 'heroku_ba6c97aaea40e14';
+  // $host = 'us-cdbr-iron-east-01.cleardb.net';
+  // $username = 'bc6687a1e7b519';
+  // $password = 'af5f2af0';
+  // $database = 'heroku_ba6c97aaea40e14';
 
 return [
 
@@ -26,7 +25,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,55 +43,55 @@ return [
     |
     */
 
-    'connections' => [
+    // 'connections' => [
+    //
+    //     'sqlite' => [
+    //         'driver' => 'sqlite',
+    //         'database' => env('DB_DATABASE', database_path('database.sqlite')),
+    //         'prefix' => '',
+    //     ],
+    //
+    //     'mysql' => [
+    //         'driver' => 'mysql',
+    //         'host' => $host,
+    //         'port' => env('DB_PORT', '3306'),
+    //         'database' => $database,
+    //         'username' => $username,
+    //         'password' => $password,
+    //         'unix_socket' => env('DB_SOCKET', ''),
+    //         'charset' => 'utf8mb4',
+    //         'collation' => 'utf8mb4_unicode_ci',
+    //         'prefix' => '',
+    //         'prefix_indexes' => true,
+    //         'strict' => true,
+    //         'engine' => null,
+    //     ],
 
-        'sqlite' => [
-            'driver' => 'sqlite',
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
-            'prefix' => '',
-        ],
-
-        'mysql' => [
-            'driver' => 'mysql',
-            'host' => $host,
-            'port' => env('DB_PORT', '3306'),
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'host' => $DATABASE_URL['host'],
+            'port' => $DATABASE_URL['port'],
+            'database' => ltrim($DATABASE_URL['path'], "/"),
+            'username' => $DATABASE_URL['user'],
+            'password' => $DATABASE_URL[''],
+            'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
         ],
 
-        // 'pgsql' => [
-        //     'driver' => 'pgsql',
-        //     'host' => env('DB_HOST', '127.0.0.1'),
-        //     'port' => env('DB_PORT', '5432'),
+        // 'sqlsrv' => [
+        //     'driver' => 'sqlsrv',
+        //     'host' => env('DB_HOST', 'localhost'),
+        //     'port' => env('DB_PORT', '1433'),
         //     'database' => env('DB_DATABASE', 'forge'),
         //     'username' => env('DB_USERNAME', 'forge'),
         //     'password' => env('DB_PASSWORD', ''),
         //     'charset' => 'utf8',
         //     'prefix' => '',
         //     'prefix_indexes' => true,
-        //     'schema' => 'public',
-        //     'sslmode' => 'prefer',
         // ],
-
-        'sqlsrv' => [
-            'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-        ],
 
     ],
 

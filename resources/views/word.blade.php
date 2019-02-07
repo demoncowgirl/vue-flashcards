@@ -4,5 +4,7 @@
 @extends('layouts.app')
 @include('inc._navbar')
 @section('content')
-
+<div id="cards">
 <card-display></card-display>
+</div>
+@endsection
