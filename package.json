@@ -28,7 +28,10 @@
     "test": "tests"
   },
   "dependencies": {
-    "pg": "^7.8.0"
+    "heroku": "^7.19.4",
+    "heroku-cli": "^7.0.9",
+    "pg": "^7.8.0",
+    "update": "^0.7.4"
   },
   "repository": {
     "type": "git",
