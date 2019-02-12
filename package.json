@@ -21,7 +21,7 @@
     "node-sass": "^4.11.0",
     "popper.js": "^1.14.4",
     "sass": "^1.17.0",
-    "vue": "^2.5.7"
+    "vue": "^2.6.6"
   },
   "name": "vue-flashcards",
   "version": "1.0.0",
@@ -30,10 +30,12 @@
     "test": "tests"
   },
   "dependencies": {
+    "composer": "^4.1.0",
     "heroku": "^7.19.4",
     "heroku-cli": "^7.0.9",
     "pg": "^7.8.0",
-    "update": "^0.7.4"
+    "update": "^0.7.4",
+    "vue-template-compiler": "^2.6.6"
   },
   "repository": {
     "type": "git",

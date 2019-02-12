@@ -8,7 +8,7 @@
                         <div class="col-md-3"></div>
                         <div class="card well col-md-6 m-2">
                             <div class="card-img-top">
-                                <img :src="'storage/images/flag.png'" id="flagImage"   alt="Card image cap">
+                                <img id="flagImage" src="{{ asset('assets/images/flag.png') }}"
                                 <div class="card-img-overlay"></div>
                                 <div id="display">
                                     <h3 class="card-title">Norwegian</h3>
@@ -19,8 +19,8 @@
                         </div>
                         <div class="card well col-md-6 m-2">
                             <div class="card-img-top mt-3">
-                                <img :src="'storage/images/us_flag2.jpeg'" id="flagImage" :src="'assets/images/us_flag2.jpeg'" alt="Card image cap">
-                                <div class="card-img-overlay"></div>
+                                <img id="flagImage" src="{{ asset('assets/images/flag2.jpeg') }}"
+                                <div class="card-img-over:lay"></div>
                                 <h3 class="card-title">English</h3>
                                 <h1 class="card-text" :id="eng_word" name="current_eng_word">{{current_eng_word}}</h1>
                                 <div class="card-body" :id="eng_sentence" name='current_eng_sentence'>{{current_eng_sentence}}</div>
