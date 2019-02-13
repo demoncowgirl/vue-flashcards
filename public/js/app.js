@@ -48006,6 +48006,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'card-display',
+    props: ['cardData'],
     data: function data() {
         return {
             current_nor_word: '',
@@ -48019,11 +48020,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {},
 
     methods: {
-        getWord: function getWord() {
-            var current_nor_word = this.cardData[this.current].nor_word;
-            var current_nor_sentence = this.cardData[this.current].nor_sentence;
-            var current_eng_word = this.cardData[this.current].eng_word;
-            var current_eng_sentence = this.cardData[this.current].eng_sentence;
+        getWord: function getWord(data) {
+            var current_nor_word = this.cardData.nor_word;
+            var current_nor_sentence = this.cardData.nor_sentence;
+            var current_eng_word = this.cardDatata.eng_word;
+            var current_eng_sentence = this.cardData.eng_sentence;
         },
         nextCard: function nextCard() {
             var cards_array = this.cards;
@@ -48041,7 +48042,148 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      {
+        staticClass: "background",
+        staticStyle: { "background-color": "#0A2463" }
+      },
+      _vm._l(_vm.cardData, function(word) {
+        return _vm.index == _vm.currentIndex
+          ? _c("div", { staticClass: "card", attrs: { id: "card-display" } }, [
+              _c(
+                "div",
+                { staticClass: "container text-center align-content-center" },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12 p-2" }, [
+                      _c("div", { staticClass: "col-md-3" }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card well col-md-6 m-2" }, [
+                        _c("div", { staticClass: "card-img-top" }, [
+                          _c("img", {
+                            staticClass: "img-responsive",
+                            attrs: {
+                              id: _vm.flagImage,
+                              src: _vm.assets / _vm.images / _vm.flag.png,
+                              alt: "Norwegian Flag"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-img-overlay" }),
+                          _vm._v(" "),
+                          _c("div", { attrs: { id: "display" } }, [
+                            _c("h3", { staticClass: "card-title" }, [
+                              _vm._v("Norwegian")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "h1",
+                              {
+                                staticClass: "card-text",
+                                attrs: {
+                                  id: _vm.nor_word,
+                                  name: "current_nor_word"
+                                }
+                              },
+                              [_vm._v(_vm._s(_vm.current_nor_word))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "card-body",
+                                attrs: {
+                                  id: _vm.nor_sentence,
+                                  name: "current_nor_sentence"
+                                }
+                              },
+                              [_vm._v(_vm._s(_vm.current_nor_sentence))]
+                            )
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card well col-md-6 m-2" }, [
+                        _c("div", { staticClass: "card-img-top mt-3" }, [
+                          _c("img", {
+                            staticClass: "img-responsive",
+                            attrs: {
+                              id: _vm.flagImage,
+                              src: _vm.assets / _vm.images / _vm.us_flag2.jpeg,
+                              alt: "American Flag"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-img-over:lay" }),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "card-title" }, [
+                            _vm._v("English")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "h1",
+                            {
+                              staticClass: "card-text",
+                              attrs: {
+                                id: _vm.eng_word,
+                                name: "current_eng_word"
+                              }
+                            },
+                            [_vm._v(_vm._s(_vm.current_eng_word))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card-body",
+                              attrs: {
+                                id: _vm.eng_sentence,
+                                name: "current_eng_sentence"
+                              }
+                            },
+                            [_vm._v(_vm._s(_vm.current_eng_sentence))]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0, true)
+                ]
+              )
+            ])
+          : _vm._e()
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-md-12 m-0 p-2", attrs: { id: "footer" } },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-2" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "footer well col-md-9 m-4" })
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {

@@ -75,8 +75,8 @@
               <a href="/logout">Logout</a>
             {{-- @else --}}
               <a href="/welcome">Home</a>
-              <a href="login">Login</a>
-              <a href="register">Register</a>
+              <a href="/auth/login">Login</a>
+              <a href="auth/register">Register</a>
               <a href="/word">Guest</a>
             {{-- @endauth --}}
         </div>
@@ -85,7 +85,7 @@
           <div class="title m-b-md">
               Velkommen!
           </div>
-          <img id="flag" src="{{ asset('images/flag.png') }}" alt="norwegian flag" width="200px">
+          <img id="flag" src="{{ asset('/assets/images/flag.png') }}" alt="norwegian flag" width="200px">
           <div class="title m-b-md">
               Snakke Norsk
           </div>
