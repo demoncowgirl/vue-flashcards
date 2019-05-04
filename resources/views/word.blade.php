@@ -3,9 +3,10 @@
 
 @extends('layouts.app')
 @include('inc._navbar')
+
 @section('content')
 <div id="cards">
-<card-display cardsdata="{{ $words->toJson() }}"></card-display>
+<card-display></card-display>
 
 </div>
 @endsection
