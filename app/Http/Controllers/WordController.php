@@ -9,11 +9,7 @@ use Session;
 
 class WordController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $words = Word::all();
@@ -68,17 +64,10 @@ class WordController extends Controller
     public function show($id)
     {
         $word = Word::find($id);
-        dd($word);
         return view('word.show', ['word' => $word]);
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $word = Word::find($id);

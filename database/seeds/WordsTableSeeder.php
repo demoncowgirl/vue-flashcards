@@ -4,24 +4,7 @@ use Illuminate\Database\Seeder;
 
 class WordsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        <?php
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
-class WordsTableSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         DB::table('words')->insert([
@@ -88,6 +71,5 @@ class WordsTableSeeder extends Seeder
           'pile_id' => 1
         ]);
       }
-    }
+
   }
-}

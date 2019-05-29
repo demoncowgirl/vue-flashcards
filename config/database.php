@@ -47,10 +47,10 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'host' => env('CLEAR_DB_HOST', ''),
+            'database' => env('CLEAR_DB_DATABASE', ''),
+            'username' => env('CLEAR_DB_USERNAME', ''),
+            'password' => env('CLEAR_DB_PWD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

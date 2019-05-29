@@ -1,7 +1,7 @@
 @section('title', '| Snakke Norsk')
 
 @extends('layouts.app')
-@include('inc._navbar')
+
 @section('content')
       <div class="row">
         <div id="welcome" class="container text-center">
