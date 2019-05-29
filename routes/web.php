@@ -28,10 +28,10 @@
   Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
   Route::resource('/word', 'WordController');
-  Route::post('/word.store', 'WordController@store');
-  Route::post('/word.create', 'WordController@create');
-  Route::post('/word.index', 'WordController@index');
-  Route::get('/word/{id}/show', 'WordController@show');
+  Route::post('/word/store', 'WordController@store')->name('word.store');
+  Route::post('/word/create', 'WordController@create')->name('word.create');
+  Route::post('/word/index', 'WordController@index')->name('word.index');
+  Route::get('/word/{id}/show', 'WordController@show')->name('word.show');
   Route::get('/word/{id}/edit', 'WordController@edit');
   Route::get('/word/{id}/index', 'WordController@index');
   Route::put('/word/{id}/update', 'wordController@update');
@@ -39,7 +39,7 @@
 
   Route::get('word', function(){
     $words = DB::table('words')->get();
-    return view('word', ['words'=>$words]);
+    return view('/word', ['words'=>$words]);
   });
 
   Form::token();

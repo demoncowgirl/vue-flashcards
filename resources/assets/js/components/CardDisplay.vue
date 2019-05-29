@@ -12,8 +12,8 @@
                                 <div class="card-img-overlay"></div>
                                 <div id="display">
                                     <h3 class="card-title">Norwegian</h3>
-                                    <h1 class="card-text" id="nor_word" name="current_nor_word">{{current_nor_word}}</h1>
-                                    <div class="card-body" id="nor_sentence" name ="current_nor_sentence">{{current_nor_sentence}}</div>
+                                    <h1 class="card-text" id="nor_word" name="nor_word">{{nor_word}}</h1>
+                                    <div class="card-body" id="nor_sentence" name ="nor_sentence">{{nor_sentence}}</div>
                                 </div>
                             </div>
                         </div>
@@ -22,8 +22,8 @@
                                 <img id="flagImage" src="assets/images/us_flag2.jpeg" class="img-responsive" alt="American Flag"/>
                                 <div class="card-img-over:lay"></div>
                                 <h3 class="card-title">English</h3>
-                                <h1 class="card-text" id="eng_word" name="current_eng_word">{{current_eng_word}}</h1>
-                                <div class="card-body" id="eng_sentence" name='current_eng_sentence'>{{current_eng_sentence}}</div>
+                                <h1 class="card-text" id="eng_word" name="eng_word">{{eng_word}}</h1>
+                                <div class="card-body" id="eng_sentence" name='eng_sentence'>{{eng_sentence}}</div>
                             </div>
                         </div>
                     </div>
@@ -46,29 +46,27 @@
 
 
 <script>
-
 export default {
     name: 'card-display',
     props: ['cardData'],
     data() {
         return {
-          current_nor_word: '',
-          current_nor_sentence: '',
-          curent_eng_word: '',
-          current_eng_sentence: '',
+          nor_word: '',
+          nor_sentence: '',
+          eng_word: '',
+          eng_sentence: '',
           currentIndex: 0,
           csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         }
     },
     mounted() {
-
     },
     methods: {
         getWord: function(data){
-            var current_nor_word = this.cardData.nor_word;
-            var current_nor_sentence = this.cardData.nor_sentence;
-            var current_eng_word = this.cardDatata.eng_word;
-            var current_eng_sentence = this.cardData.eng_sentence;
+            var nor_word = this.cardData.nor_word;
+            var nor_sentence = this.cardData.nor_sentence;
+            var eng_word = this.cardDatata.eng_word;
+            var eng_sentence = this.cardData.eng_sentence;
         },
         nextCard: function() {
             var cards_array = this.cards;
@@ -81,5 +79,4 @@ export default {
         },
     },
   }
-
 </script>

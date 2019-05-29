@@ -68,7 +68,8 @@ class WordController extends Controller
     public function show($id)
     {
         $word = Word::find($id);
-        return view('word') ->with('word', $word);
+        dd($word);
+        return view('word.show', ['word' => $word]);
 
     }
 
@@ -84,13 +85,7 @@ class WordController extends Controller
         return view('words/edit') ->with ('word', $word);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         // validate the data
@@ -111,12 +106,7 @@ class WordController extends Controller
         return redirect() -> route('word', $word -> id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $word = Word::find($id);
