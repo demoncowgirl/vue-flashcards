@@ -13,7 +13,7 @@ class CreateWordsTable extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pile_id');
+            $table->integer('pile_id') -> nullable();
             $table->string('nor_word');
             $table->string('eng_word');
             $table->string('nor_sentence');

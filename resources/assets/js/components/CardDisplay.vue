@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-        <div id="card-display" class="card" v-for="(word, index) in cardData" v-if="index==currentIndex">
+        <div id="card-display" class="card" v-for="(words, index) in cardData" v-if="index==currentIndex">
             <div class="container text-center align-content-center">
                 <div class="row">
                     <div class="col-md-12 p-2">
@@ -22,7 +22,7 @@
                                 <div class="card-img-over:lay"></div>
                                 <h3 class="card-title">English</h3>
                                 <h1 class="card-text" id="eng_word" name="current_eng_word">{{current_eng_word}}</h1>
-                                <div class="card-body" id="eng_sentence" name='current_eng_sentence'>{{currernt_eng_sentence}}</div>
+                                <div class="card-body" id="eng_sentence" name='current_eng_sentence'>{{current_eng_sentence}}</div>
                             </div>
                         </div>
                     </div>
@@ -49,36 +49,46 @@
 export default {
     name: 'card-display',
     props: ['cardData'],
+    mounted() {
+    },
     data() {
         return {
-          index: 0,
-          currentIndex: 0,
-          current_nor_word: '',
-          current_nor_sentence: '',
-          current_eng_word: '',
-          current_eng_sentence: '',
+          nor_word: '',
+          nor_sentence: '',
+          eng_word: '',
+          eng_sentence: '',
+          words:[],
           currentIndex: 0,
           csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         }
     },
-    mounted() {
-    },
     methods: {
         getWord: function(data){
-            var nor_word = this.cardData.nor_word;
-            var nor_sentence = this.cardData.nor_sentence;
-            var eng_word = this.cardDatata.eng_word;
-            var eng_sentence = this.cardData.eng_sentence;
+          var current_nor_word = this.nor_word;
+          var current_nor_sentence = this.nor_sentence;
+          var current_eng_word = this.eng_word;
+          var current_eng_sentence = this.eng_sentence;
         },
         nextCard: function() {
-            var cards_array = this.cards;
-            this.currentIndex = (this.currentIndex + 1) % this.cards_array.length;
+            var wordArray = this.words;
+            this.currentIndex = (this.currentIndex + 1) % this.wordArray.length;
         },
         prevCard: function() {
             if (this.currentIndex > 0) {
-                this.currentIndex--
+                this.currentIndex--;
             }
         },
+        addWord: function(){
+          this.nor_word ='',
+          this.nor_sentence ='',
+          this.eng_word ='',
+          this.eng_sentence ='',
+          this.words.push(nor_word, nor_sentence, eng_word, eng_sentence);
+
+        },
+    },
+    computed() {
+      return this.words(this.currentIndex);
     },
   }
 </script>

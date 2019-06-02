@@ -23,6 +23,7 @@ class PagesController extends Controller
     }
 
     public function getWord(){
+
       return view('word');
     }
 

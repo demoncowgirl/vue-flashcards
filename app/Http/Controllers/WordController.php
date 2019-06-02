@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Word;
+use App\Pile;
 use Session;
 
 class WordController extends Controller
@@ -44,6 +45,7 @@ class WordController extends Controller
 
         // store in database
         $word = new Word;
+        $word -> pile() -> associate($word -> id);
         $word -> nor_word = $request -> input('nor_word');
         $word -> nor_sentence = $request -> input('nor_sentence');
         $word -> eng_word = $request -> input('eng_word');
@@ -64,6 +66,7 @@ class WordController extends Controller
     public function show($id)
     {
         $word = Word::find($id);
+        dd($word);
         return view('word.show', ['word' => $word]);
 
     }

@@ -27,15 +27,15 @@
   Route::get('/word', 'PagesController@getWord');
   Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-  Route::resource('/word', 'WordController');
-  Route::post('/word/store', 'WordController@store')->name('word.store');
-  Route::post('/word/create', 'WordController@create')->name('word.create');
-  Route::post('/word/index', 'WordController@index')->name('word.index');
-  Route::get('/word/{id}/show', 'WordController@show')->name('word.show');
-  Route::get('/word/{id}/edit', 'WordController@edit');
-  Route::get('/word/{id}/index', 'WordController@index');
-  Route::put('/word/{id}/update', 'wordController@update');
-  Route::put('//word/{id}/destroy', 'WordController@delete');
+  Route::resource('/words', 'WordController');
+  Route::post('/words/store', 'WordController@store')->name('word.store');
+  Route::post('/words/create', 'WordController@create')->name('word.create');
+  Route::post('/words/index', 'WordController@index')->name('word.index');
+  Route::get('/words/{id}/show', 'WordController@show')->name('word.show');
+  Route::get('/words/{id}/edit', 'WordController@edit');
+  Route::get('/words/{id}/index', 'WordController@index');
+  Route::put('/words/{id}/update', 'wordController@update');
+  Route::put('/words/{id}/destroy', 'WordController@delete');
 
   Route::get('word', function(){
     $words = DB::table('words')->get();

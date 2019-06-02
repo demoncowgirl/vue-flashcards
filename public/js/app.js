@@ -1763,8 +1763,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -1815,35 +1813,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'card-display',
   props: ['cardData'],
-  data: function data() {
-    var _ref;
-
-    return _ref = {
-      index: 0,
-      currentIndex: 0,
-      current_nor_word: '',
-      current_nor_sentence: '',
-      current_eng_word: '',
-      current_eng_sentence: ''
-    }, _defineProperty(_ref, "currentIndex", 0), _defineProperty(_ref, "csrf", document.querySelector('meta[name="csrf-token"]').getAttribute('content')), _ref;
-  },
   mounted: function mounted() {},
+  data: function data() {
+    return {
+      nor_word: '',
+      nor_sentence: '',
+      eng_word: '',
+      eng_sentence: '',
+      words: [],
+      currentIndex: 0,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    };
+  },
   methods: {
     getWord: function getWord(data) {
-      var nor_word = this.cardData.nor_word;
-      var nor_sentence = this.cardData.nor_sentence;
-      var eng_word = this.cardDatata.eng_word;
-      var eng_sentence = this.cardData.eng_sentence;
+      var current_nor_word = this.nor_word;
+      var current_nor_sentence = this.nor_sentence;
+      var current_eng_word = this.eng_word;
+      var current_eng_sentence = this.eng_sentence;
     },
     nextCard: function nextCard() {
-      var cards_array = this.cards;
-      this.currentIndex = (this.currentIndex + 1) % this.cards_array.length;
+      var wordArray = this.words;
+      this.currentIndex = (this.currentIndex + 1) % this.wordArray.length;
     },
     prevCard: function prevCard() {
       if (this.currentIndex > 0) {
         this.currentIndex--;
       }
+    },
+    addWord: function addWord() {
+      this.nor_word = '', this.nor_sentence = '', this.eng_word = '', this.eng_sentence = '', this.words.push(nor_word, nor_sentence, eng_word, eng_sentence);
     }
+  },
+  computed: function computed() {
+    return this.words(this.currentIndex);
   }
 });
 
@@ -37151,7 +37154,7 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "container" },
-    _vm._l(_vm.cardData, function(word, index) {
+    _vm._l(_vm.cardData, function(words, index) {
       return index == _vm.currentIndex
         ? _c("div", { staticClass: "card", attrs: { id: "card-display" } }, [
             _c(
@@ -37242,7 +37245,7 @@ var render = function() {
                               name: "current_eng_sentence"
                             }
                           },
-                          [_vm._v(_vm._s(_vm.currernt_eng_sentence))]
+                          [_vm._v(_vm._s(_vm.current_eng_sentence))]
                         )
                       ])
                     ])
