@@ -6,6 +6,7 @@
             <div id="navbar-links" class="flex-center">
               @if (Route::has('login'))
               <div class="top-right links">
+
                 <a href="/">Home</a>
                     @auth
                     <a href="/word">Start</a>
@@ -13,8 +14,8 @@
                     @endauth
 
                     @guest
-                    <a href="/login">Login</a>
-                    <a href="/register">Register</a>
+                    <a href="/auth/login">Login</a>
+                    <a href="/auth/register">Register</a>
                     <a href="/word">Guest</a>
                     @endguest
 

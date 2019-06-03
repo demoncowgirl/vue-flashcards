@@ -13,8 +13,8 @@ class WordController extends Controller
 
     public function index()
     {
-        $words = Word::all();
-        return view('word')->with('words', $words);
+        $words = Word::orderBy('id', 'asc')->get();
+        return view('words.index')->with('words', $words);
     }
 
     /**
@@ -24,7 +24,7 @@ class WordController extends Controller
      */
     public function create()
     {
-        return view('words/create'); //shows a form page
+        return view('words.create'); //shows a form page
     }
 
     /**
@@ -54,7 +54,7 @@ class WordController extends Controller
 
         Session::flash('success', 'The new word was saved successfully!');
         // redirect to another
-        return redirect()->route('word.store', $word -> id);
+        return redirect()->route('words.store', $word -> id);
     }
 
     /**
@@ -66,15 +66,14 @@ class WordController extends Controller
     public function show($id)
     {
         $word = Word::find($id);
-        dd($word);
-        return view('word.show', ['word' => $word]);
+        return view('word', ['word' => $word]);
 
     }
 
     public function edit($id)
     {
         $word = Word::find($id);
-        return view('words/edit') ->with ('word', $word);
+        return view('words.edit') ->with('word', $word);
     }
 
 

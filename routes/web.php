@@ -28,12 +28,11 @@
   Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
   Route::resource('/words', 'WordController');
-  Route::post('/words/store', 'WordController@store')->name('word.store');
-  Route::post('/words/create', 'WordController@create')->name('word.create');
-  Route::post('/words/index', 'WordController@index')->name('word.index');
-  Route::get('/words/{id}/show', 'WordController@show')->name('word.show');
+  Route::post('/words/index', 'WordController@index')->name('words.index');
+  Route::post('/words/store', 'WordController@store')->name('words.store');
+  Route::post('/words/create', 'WordController@create')->name('words.create');
+  Route::get('/words/{id}/show', 'WordController@show')->name('words.show');
   Route::get('/words/{id}/edit', 'WordController@edit');
-  Route::get('/words/{id}/index', 'WordController@index');
   Route::put('/words/{id}/update', 'wordController@update');
   Route::put('/words/{id}/destroy', 'WordController@delete');
 

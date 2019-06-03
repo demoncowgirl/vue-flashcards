@@ -1800,43 +1800,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'card-display',
+  name: 'card',
   props: ['cardData'],
   mounted: function mounted() {},
   data: function data() {
     return {
+      pile_id: '',
       nor_word: '',
       nor_sentence: '',
       eng_word: '',
       eng_sentence: '',
       words: [],
+      index: 0,
       currentIndex: 0,
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
   methods: {
-    getWord: function getWord(data) {
-      var current_nor_word = this.nor_word;
-      var current_nor_sentence = this.nor_sentence;
-      var current_eng_word = this.eng_word;
-      var current_eng_sentence = this.eng_sentence;
+    getWord: function getWord(cardData) {
+      var nor_word = this.nor_word;
+      var nor_sentence = this.nor_sentence;
+      var eng_word = this.eng_word;
+      var eng_sentence = this.eng_sentence;
     },
-    nextCard: function nextCard() {
-      var wordArray = this.words;
-      this.currentIndex = (this.currentIndex + 1) % this.wordArray.length;
+    nextCard: function nextCard(index) {
+      this.currentIndex = (this.currentIndex + 1) % this.words.length;
     },
-    prevCard: function prevCard() {
+    prevCard: function prevCard(index) {
       if (this.currentIndex > 0) {
         this.currentIndex--;
       }
@@ -1844,9 +1835,6 @@ __webpack_require__.r(__webpack_exports__);
     addWord: function addWord() {
       this.nor_word = '', this.nor_sentence = '', this.eng_word = '', this.eng_sentence = '', this.words.push(nor_word, nor_sentence, eng_word, eng_sentence);
     }
-  },
-  computed: function computed() {
-    return this.words(this.currentIndex);
   }
 });
 
@@ -37153,10 +37141,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container" },
-    _vm._l(_vm.cardData, function(words, index) {
+    { staticClass: "container", attrs: { id: "app" } },
+    _vm._l(_vm.cardData, function(word, index) {
       return index == _vm.currentIndex
-        ? _c("div", { staticClass: "card", attrs: { id: "card-display" } }, [
+        ? _c("div", { key: index, staticClass: "card" }, [
             _c(
               "div",
               { staticClass: "container text-center align-content-center" },
@@ -37187,12 +37175,9 @@ var render = function() {
                             "h1",
                             {
                               staticClass: "card-text",
-                              attrs: {
-                                id: "nor_word",
-                                name: "current_nor_word"
-                              }
+                              attrs: { id: "nor_word", name: "nor_word" }
                             },
-                            [_vm._v(_vm._s(_vm.current_nor_word))]
+                            [_vm._v(_vm._s(_vm.nor_word))]
                           ),
                           _vm._v(" "),
                           _c(
@@ -37201,10 +37186,10 @@ var render = function() {
                               staticClass: "card-body",
                               attrs: {
                                 id: "nor_sentence",
-                                name: "current_nor_sentence"
+                                name: "nor_sentence"
                               }
                             },
-                            [_vm._v(_vm._s(_vm.current_nor_sentence))]
+                            [_vm._v(_vm._s(_vm.nor_sentence))]
                           )
                         ])
                       ])
@@ -37233,7 +37218,7 @@ var render = function() {
                             staticClass: "card-text",
                             attrs: { id: "eng_word", name: "current_eng_word" }
                           },
-                          [_vm._v(_vm._s(_vm.current_eng_word))]
+                          [_vm._v(_vm._s(_vm.eng_word))]
                         ),
                         _vm._v(" "),
                         _c(
@@ -37245,7 +37230,7 @@ var render = function() {
                               name: "current_eng_sentence"
                             }
                           },
-                          [_vm._v(_vm._s(_vm.current_eng_sentence))]
+                          [_vm._v(_vm._s(_vm.eng_sentence))]
                         )
                       ])
                     ])
@@ -37276,9 +37261,7 @@ var render = function() {
                     },
                     [_vm._v("Next")]
                   )
-                ]),
-                _vm._v(" "),
-                _vm._m(0, true)
+                ])
               ]
             )
           ])
@@ -37287,24 +37270,7 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-12 m-0 p-2", attrs: { id: "footer" } },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-2" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "footer well col-md-9 m-4" })
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -49462,7 +49428,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.component('card-display', __webpack_require__(/*! ./components/CardDisplay.vue */ "./resources/assets/js/components/CardDisplay.vue")["default"]);
+Vue.component('card', __webpack_require__(/*! ./components/CardDisplay.vue */ "./resources/assets/js/components/CardDisplay.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -49531,14 +49497,15 @@ if (token) {
 /*!********************************************************!*\
   !*** ./resources/assets/js/components/CardDisplay.vue ***!
   \********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardDisplay_vue_vue_type_template_id_3a8603aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardDisplay.vue?vue&type=template&id=3a8603aa& */ "./resources/assets/js/components/CardDisplay.vue?vue&type=template&id=3a8603aa&");
 /* harmony import */ var _CardDisplay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDisplay.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/CardDisplay.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _CardDisplay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _CardDisplay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49568,7 +49535,7 @@ component.options.__file = "resources/assets/js/components/CardDisplay.vue"
 /*!*********************************************************************************!*\
   !*** ./resources/assets/js/components/CardDisplay.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
