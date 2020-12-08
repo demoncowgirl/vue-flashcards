@@ -19,7 +19,7 @@
                         <div class="card well col-md-6 m-2">
                             <div class="card-img-top mt-3">
                                 <img id="flagImage" src="assets/images/us_flag2.jpeg" class="img-responsive" alt="American Flag"/>
-                                <div class="card-img-over:lay"></div>
+                                <div class="card-img-overlay"></div>
                                 <h3 class="card-title">English</h3>
                                 <h1 class="card-text" id="eng_word" name="current_eng_word">{{eng_word}}</h1>
                                 <div class="card-body" id="eng_sentence" name='current_eng_sentence'>{{eng_sentence}}</div>

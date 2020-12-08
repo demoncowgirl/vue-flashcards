@@ -37453,7 +37453,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _c("div", { staticClass: "card-img-over:lay" }),
+                        _c("div", { staticClass: "card-img-overlay" }),
                         _vm._v(" "),
                         _c("h3", { staticClass: "card-title" }, [
                           _vm._v("English")
@@ -49853,8 +49853,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/beth/beth/repos/vue-flashcards/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /home/beth/beth/repos/vue-flashcards/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! /home/beth/repos/vue-flashcards/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /home/beth/repos/vue-flashcards/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

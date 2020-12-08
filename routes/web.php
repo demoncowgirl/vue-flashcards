@@ -15,7 +15,7 @@
   Route::post('login', 'Auth\LoginController@login')->name('successful.login');
   Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
   // Registration Routes
-  Route::get('auth/register', 'Auth\RegisterController@make')->name('register');
+  Route::get('auth/register', 'Auth\RegisterController@getRegister')->name('register');
   Route::post('store', 'Auth\RegisterController@create')->name('register.store');
 
   Route::get('/', 'PagesController@getHome'); //to welcome page

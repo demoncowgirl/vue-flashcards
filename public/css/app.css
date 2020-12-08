@@ -72,6 +72,12 @@ h3 {
   align-content: flex-end;
 }
 
+#register .container-fluid {
+  margin-top: 40px;
+  max-width: 320px;
+  background-image: url(/images/flag.png?7b90ddc3387805ed46de38f4a0bf8c3e);
+}
+
 #card-display {
   height: auto;
   width: 80%;

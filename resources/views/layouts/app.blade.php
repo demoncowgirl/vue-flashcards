@@ -20,8 +20,12 @@
 
 </head>
 <body>
+
+  <div id="navbar">
+    @include('inc._navbar')
+  </div>
+
   <div id="app">
-      @include('inc._navbar')
       @yield('content')
   </div>
 
